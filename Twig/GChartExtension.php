@@ -44,7 +44,7 @@ class GChartExtension extends \Twig_Extension {
             'gchart_get_icon_url'   => new \Twig_Function_Method($this, 'getIconUrl', array('is_safe' => array('html'))),
             'gchart_get_letter_pin_url'   => new \Twig_Function_Method($this, 'getLetterPinUrl', array('is_safe' => array('html'))),
             'gchart_get_icon_pin_url'   => new \Twig_Function_Method($this, 'getIconPinUrl', array('is_safe' => array('html'))),
-            
+            'gchart_annotated_timeline' => new \Twig_Function_Method($this, 'gchartAnnotatedTimelineChart', array('is_safe' => array('html'))),
         );
     }
     
@@ -73,6 +73,11 @@ class GChartExtension extends \Twig_Extension {
      */
     public function gchartLineChart($data, $id, $width, $height, $title = null, $config = array()) {
         return $this->renderGChart($data, $id, 'LineChart', $width, $height, $title, $config);
+    }
+    
+    
+    public function gchartAnnotatedTimelineChart($data, $id, $width, $height, $title = null, $config = array()) {
+        return $this->renderGChart($data, $id, 'AnnotatedTimeLine', $width, $height, $title, $config);
     }
     /**
      * gchart_bar_chart definition
